@@ -7,6 +7,8 @@ import iax.audio.Recorder;
 import iax.audio.RecorderException;
 import iax.audio.gsm.GSMPlayer;
 import iax.audio.gsm.GSMRecorder;
+import iax.audio.impl.ULAWPlayer;
+import iax.audio.impl.ULAWRecorder;
 import iax.protocol.call.command.send.CallCommandSendFacade;
 import iax.protocol.call.state.CallState;
 import iax.protocol.call.state.Initial;
@@ -97,8 +99,8 @@ public class Call implements AudioListener{
         this.framesWaitingAck = new HashMap();
         this.framesWaitingReply = new HashMap();
         try {
-            this.player = new GSMPlayer();
-            this.recorder = new GSMRecorder();
+            this.player = new ULAWPlayer();
+            this.recorder = new ULAWRecorder();
         } catch (Exception e) {
             throw new CallException(e);
         }
